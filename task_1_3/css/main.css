@@ -1,0 +1,70 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    padding: 20px;
+}
+
+#wrapper, #leftContainer, #rightContainer, #mainContainer {
+    border: 1px solid #999;
+    padding: 20px;
+}
+
+#leftContainer, #rightContainer, #mainContainer {
+    background-color: #fff;
+}
+
+#wrapper {
+    background-color: #eee;
+    overflow: auto;
+    min-width: calc(20px + 200px + 20px + 200px + 20px + 120px + 20px);
+}
+
+#wrapper img {
+    width: 80px;
+    height: 80px;
+}
+
+#wrapper #leftContainer {
+
+    width: 200px;
+    float: left;
+
+}
+
+#wrapper #leftContainer img {
+
+    float: left;
+    margin-right: 10px;
+}
+
+#wrapper #leftContainer span {
+
+    /*英文要强制换行，否则实现效果和图片要求不一致*/
+    word-break: break-all;
+
+}
+
+#wrapper #rightContainer {
+    width: 120px;
+    float: right;
+    text-align: center;
+}
+
+#wrapper #mainContainer {
+    margin-left: 220px;
+    margin-right: 140px;
+}
+
+#mainContainer p {
+    margin-top: 10px;
+}
+
+#rightContainer img:not(:first-child) {
+    margin-top: 20px;
+}

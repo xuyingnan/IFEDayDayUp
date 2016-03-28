@@ -1,4 +1,7 @@
-# 任务一Tips
+# 任务一Tips #
+
+----------
+
 
 
 ## [任务一：零基础HTML编码](http://ife.baidu.com/task/detail?taskId=1) ##
@@ -39,6 +42,6 @@
 
 ----------
 
-# 笔记 #
+## 笔记 ##
 
 
