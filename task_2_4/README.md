@@ -1,7 +1,7 @@
-# 任务十五Tips #
+# 任务十六Tips #
 
 ----------
-## [任务十五：零基础JavaScript编码（三）](http://ife.baidu.com/task/detail?taskId=15) ##
+## [任务十六：零基础JavaScript编码（四）](http://ife.baidu.com/task/detail?taskId=16) ##
 
 
 
@@ -11,7 +11,7 @@
 
 
 - 难度：
-简单
+中等
 ### 重要说明 ###
 
 百度前端技术学院的课程任务是由百度前端工程师专为对前端不同掌握程度的同学设计。我们尽力保证课程内容的质量以及学习难度的合理性，但即使如此，真正决定课程效果的，还是你的每一次思考和实践。
@@ -25,13 +25,16 @@
 - 在上一任务基础上继续JavaScript的体验
 
 
-- 接触一下JavaScript中的高级选择器
+- 深入学习JavaScript的事件机制及DOM操作
 
 
-- 学习JavaScript中的数组对象遍历、读写、排序等操作
+- 学习事件代理机制
 
 
-- 学习简单的字符串处理操作
+- 学习简单的表单验证功能
+
+
+- 学习外部加载JavaScript文件
 
 
 - 
@@ -39,106 +42,114 @@
 
 
 
-- 参考以下示例代码，读取页面上已有的source列表，从中提取出城市以及对应的空气质量
+
+- 参考以下示例代码，用户输入城市名称和空气质量指数后，点击“确认添加”按钮后，就会将用户的输入在进行验证后，添加到下面的表格中，新增一行进行显示
 
 
-- 将数据按照某种顺序排序后，在resort列表中按照顺序显示出来
+- 用户输入的城市名必须为中英文字符，空气质量指数必须为整数
+用户输入的城市名字和空气质量指数需要进行前后去空格及空字符处理（trim）
 
 
-		<!DOCTYPE>
-		<html>
-		  <head>
-		    <meta charset="utf-8">
-		    <title>IFE JavaScript Task 01</title>
-		  </head>
-		<body>
-		
-		  <ul id="source">
-		    <li>北京空气质量：<b>90</b></li>
-		    <li>上海空气质量：<b>70</b></li>
-		    <li>天津空气质量：<b>80</b></li>
-		    <li>广州空气质量：<b>50</b></li>
-		    <li>深圳空气质量：<b>40</b></li>
-		    <li>福州空气质量：<b>32</b></li>
-		    <li>成都空气质量：<b>90</b></li>
-		  </ul>
-		
-		  <ul id="resort">
-		    <!-- 
-		    <li>第一名：北京空气质量：<b>90</b></li>
-		    <li>第二名：北京空气质量：<b>90</b></li>
-		    <li>第三名：北京空气质量：<b>90</b></li>
-		     -->
-		
-		  </ul>
-		
-		  <button id="sort-btn">排序</button>
-		
-		<script type="text/javascript">
-		
-		/**
-		 * getData方法
-		 * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
-		 * 返回一个数组，格式见函数中示例
-		 */
-		function getData() {
-		  /*
-		  coding here
-		  */
-		
-		  /*
-		  data = [
-		    ["北京", 90],
-		    ["北京", 90]
-		    ……
-		  ]
-		  */
-		
-		  return data;
-		
-		}
-		
-		/**
-		 * sortAqiData
-		 * 按空气质量对data进行从小到大的排序
-		 * 返回一个排序后的数组
-		 */
-		function sortAqiData(data) {
-		
-		}
-		
-		/**
-		 * render
-		 * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
-		 * 格式见ul中的注释的部分
-		 */
-		function render(data) {
-		
-		}
-		
-		function btnHandle() {
-		  var aqiData = getData();
-		  aqiData = sortAqiData(aqiData);
-		  render(aqiData);
-		}
-		
-		
-		function init() {
-		
-		  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-		
-		}
-		
-		init();
-		
-		</script>
-		</body>
-		</html>
+- 用户输入不合规格时，需要给出提示（允许用alert，也可以自行定义提示方式）
 
 
+- 用户可以点击表格列中的“删除”按钮，删掉那一行的数据
 
+
+**task.html**
+
+    <!DOCTYPE>
+    <html>
+      <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+    <script src="task.js"></script>
+      </head>
+    <body>
+    
+      <div>
+    <label>城市名称：<input id="aqi-city-input" type="text"></label><br>
+    <label>空气质量指数：<input id="aqi-value-input" type="text"></label><br>
+    <button id="add-btn">确认添加</button>
+      </div>
+      <table id="aqi-table">
+      <!-- 
+    <tr>
+      <td>城市</td><td>空气质量</td><td>操作</td>
+    </tr>
+    <tr>
+      <td>北京</td><td>90</td><td><button>删除</button></td>
+    </tr>
+    <tr>
+      <td>北京</td><td>90</td><td><button>删除</button></td>
+    </tr>
+       -->
+      </table>
+    
+    </body>
+    </html>
+
+
+**task.js**
+
+
+    /**
+     * aqiData，存储用户输入的空气指数数据
+     * 示例格式：
+     * aqiData = {
+     *"北京": 90,
+     *"上海": 40
+     * };
+     */
+    var aqiData = {};
+    
+    /**
+     * 从用户输入中获取数据，向aqiData中增加一条数据
+     * 然后渲染aqi-list列表，增加新增的数据
+     */
+    function addAqiData() {
+    
+    }
+    
+    /**
+     * 渲染aqi-table表格
+     */
+    function renderAqiList() {
+    
+    }
+    
+    /**
+     * 点击add-btn时的处理逻辑
+     * 获取用户输入，更新数据，并进行页面呈现的更新
+     */
+    function addBtnHandle() {
+      addAqiData();
+      renderAqiList();
+    }
+    
+    /**
+     * 点击各个删除按钮的时候的处理逻辑
+     * 获取哪个城市数据被删，删除数据，更新表格显示
+     */
+    function delBtnHandle() {
+      // do sth.
+    
+      renderAqiList();
+    }
+    
+    function init() {
+    
+      // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
+    
+      // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
+    
+    }
+    
+    init();
 
 ### 任务注意事项 ###
+
+
 
 
 - 实现简单功能的同时，请仔细学习JavaScript基本语法、事件、DOM相关的知识
@@ -148,6 +159,9 @@
 
 
 - 代码中含有必要的注释
+
+
+- 验证输入逻辑可以在失去焦点时判断，也可以在点击按钮时判断
 
 
 - 建议不使用任何第三方库、框架
@@ -182,3 +196,9 @@
 
 ----------
 ## 笔记 ##
+
+
+
+- 注意js加载顺序，如果将js在前面引用，在dom没有加载完就可能执行document.getElementById方法导致报错
+- event.target.childNodes获取全部子节点，这个任务获取第一个子节点也可以用firstChild替代
+- Object删除属性delete方法
