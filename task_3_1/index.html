@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务三十七：UI组件之浮出层</title>
+    <link rel="stylesheet" href="modalWin.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+
+        .demo-h1 {
+            margin-top: 20px;
+            text-align: center;
+            color: #005da8;
+            font-family: "Microsoft YaHei", SimSun, Heiti, sans-serif;
+        }
+
+        .demo {
+            width: 100%;
+            margin: 300px auto;
+            text-align: center;
+        }
+
+        .demo-btn {
+            color: #666;
+            background-color: #EEE;
+            border-color: #EEE;
+            font-weight: 300;
+            font-size: 16px;
+            font-family: "Microsoft YaHei", SimSun, Heiti, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            padding: 0 20px;
+            margin: 0;
+            display: inline-block;
+            appearance: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #success_btn {
+            background-color: #3c763d;
+            color: #fff;
+        }
+
+        #info_btn {
+            background-color: #31708f;
+            color: #fff;
+        }
+
+        #warning_btn {
+            background-color: #8a6d3b;
+            color: #fff;
+        }
+
+        #danger_btn {
+            background-color: #a94442;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<!--<div class="modalWin">-->
+<!--<div class="modalWin-body">-->
+<!--<header class="modalWin-header">-->
+<!--标题-->
+<!--</header>-->
+<!--<section class="modalWin-content">-->
+<!--<p>这里是内容。</p>-->
+<!--<input type="button" class="modalWin-confirm" value="确定">-->
+<!--<input type="button" class="modalWin-cancel" value="取消">-->
+<!--</section>-->
+<!--</div>-->
+
+<!--</div>-->
+<h1 class="demo-h1">UI组件之浮出层Demo</h1>
+<section class="demo">
+    <button id="default_btn" class="demo-btn">
+        标准浮出层
+    </button>
+
+    <button id="success_btn" class="demo-btn">
+        成功浮出层
+    </button>
+
+    <button id="info_btn" class="demo-btn">
+        通知浮出层
+    </button>
+
+    <button id="warning_btn" class="demo-btn">
+        警告浮出层
+    </button>
+
+    <button id="danger_btn" class="demo-btn">
+        危险浮出层
+    </button>
+</section>
+
+<script src="modalWin.js"></script>
+<script>
+    document.getElementById("default_btn").addEventListener("click", function () {
+        winModalDefault = new ModalWin({
+            title: "标准",
+            text: "标准浮出层内容"
+        });
+    });
+
+    document.getElementById("success_btn").addEventListener("click", function () {
+        winModalDefault = new ModalWin({
+            title: "成功",
+            text: "成功浮出层内容",
+            theme:"success"
+        });
+    });
+
+    document.getElementById("info_btn").addEventListener("click", function () {
+        winModalDefault = new ModalWin({
+            title: "信息",
+            text: "信息浮出层内容",
+            theme:"info"
+        });
+    });
+
+    document.getElementById("warning_btn").addEventListener("click", function () {
+        winModalDefault = new ModalWin({
+            title: "警告",
+            text: "警告浮出层内容",
+            theme:"warning"
+        });
+    });
+    document.getElementById("danger_btn").addEventListener("click", function () {
+        winModalDefault = new ModalWin({
+            title: "危险",
+            text: "危险浮出层内容",
+            theme:"danger"
+        });
+    });
+</script>
+</body>
+</html>

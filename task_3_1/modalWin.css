@@ -1,0 +1,123 @@
+.modalWin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", SimSun, Heiti, sans-serif;
+
+}
+
+.modalWin-body {
+
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    margin-left: -250px;
+    margin-top: -125px;
+
+}
+
+.modalWin-header {
+    background-color: #575757;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #fff;
+    cursor: move;
+}
+
+.modalWin-header.success {
+    background-color: #3c763d;
+}
+
+.modalWin-header.info {
+    background-color: #31708f;
+}
+
+.modalWin-header.warning {
+    background-color: #8a6d3b;
+}
+
+.modalWin-header.danger {
+    background-color: #a94442;
+}
+
+.modalWin-content {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.modalWin-body.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.modalWin-body.info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.modalWin-body.warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.modalWin-body.danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.modalWin-confirm, .modalWin-cancel {
+    position: absolute;
+    bottom: 10px;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Microsoft YaHei", SimSun, Heiti, sans-serif;
+    line-height: 30px;
+    padding: 0 20px;
+
+}
+
+.modalWin-confirm.success, .modalWin-cancel.success {
+    background-color: #3c763d;
+    color: #fff;
+}
+
+.modalWin-confirm.info, .modalWin-cancel.info {
+    background-color: #31708f;
+    color: #fff;
+}
+
+.modalWin-confirm.warning, .modalWin-cancel.warning {
+    background-color: #8a6d3b;
+    color: #fff;
+}
+
+.modalWin-confirm.danger, .modalWin-cancel.danger {
+    background-color: #a94442;
+    color: #fff;
+}
+
+.modalWin-confirm {
+    right: 100px;
+}
+
+.modalWin-cancel {
+    right: 10px;
+}
